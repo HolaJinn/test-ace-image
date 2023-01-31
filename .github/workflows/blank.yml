@@ -31,6 +31,7 @@ jobs:
         with:
           username: cp
           password: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2NzQ3MjI3NTQsImp0aSI6IjM1MGI3NGZmNzFhYzQxMGE4NDUxNzc1ZjRiMWI3YjdiIn0.gELGivzptT_-tkbGiS6bEv_vyeFkSWYB86HX4dDhk1w
+          registry: cp.icr.io
           
       - name: Pull ACE Image
-        uses: cp.icr.io/cp/appc/ace:12.0.7.0-r1@sha256:376b4008901f5306af3e4235a54f3b6a27e18cfe00a22cc6d673fd1d95b95231
+        run: docker pull cp.icr.io/cp/appc/ace:12.0.7.0-r1@sha256:376b4008901f5306af3e4235a54f3b6a27e18cfe00a22cc6d673fd1d95b95231
