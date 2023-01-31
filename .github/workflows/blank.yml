@@ -33,14 +33,15 @@ jobs:
           password: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2NzQ3MjI3NTQsImp0aSI6IjM1MGI3NGZmNzFhYzQxMGE4NDUxNzc1ZjRiMWI3YjdiIn0.gELGivzptT_-tkbGiS6bEv_vyeFkSWYB86HX4dDhk1w
           registry: cp.icr.io
       
-      - name: Pull ACE Image
-        run: |
-          docker pull cp.icr.io/cp/appc/ace:12.0.7.0-r1@sha256:376b4008901f5306af3e4235a54f3b6a27e18cfe00a22cc6d673fd1d95b95231
-          docker images
-          docker run --name aceserver -p 7600:7600 -p 7800:7800 -p 7843:7843 --env LICENSE=accept --env ACE_SERVER_NAME=ACESERVER cp.icr.io/cp/appc/ace:12.0.7.0-r1@sha256:376b4008901f5306af3e4235a54f3b6a27e18cfe00a22cc6d673fd1d95b95231
+      #- name: Pull ACE Image
+      #  run: |
+       #   docker pull cp.icr.io/cp/appc/ace:12.0.7.0-r1@sha256:376b4008901f5306af3e4235a54f3b6a27e18cfe00a22cc6d673fd1d95b95231
+        #  docker images
+         # docker run --name aceserver -p 7600:7600 -p 7800:7800 -p 7843:7843 --env LICENSE=accept --env ACE_SERVER_NAME=ACESERVER cp.icr.io/cp/appc/ace:12.0.7.0-r1@sha256:376b4008901f5306af3e4235a54f3b6a27e18cfe00a22cc6d673fd1d95b95231
 
-      - name: Use
-        uses: docker://cp.icr.io/cp/appc/ace:12.0.7.0-r1@sha256:376b4008901f5306af3e4235a54f3b6a27e18cfe00a22cc6d673fd1d95b95231
-        with: 
-          run: docker login cp.icr.io -u cp -p eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2NzQ3MjI3NTQsImp0aSI6IjM1MGI3NGZmNzFhYzQxMGE4NDUxNzc1ZjRiMWI3YjdiIn0.gELGivzptT_-tkbGiS6bEv_vyeFkSWYB86HX4dDhk1w
+      - name: Extract Docker metadata
+        id: meta
+        uses: docker/metadata-action@v2
+        with:
+          images: cp.icr.io/cp/appc/ace:12.0.7.0-r1@sha256:376b4008901f5306af3e4235a54f3b6a27e18cfe00a22cc6d673fd1d95b95231
 
