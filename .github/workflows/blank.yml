@@ -49,7 +49,7 @@ jobs:
           
       - name: Execute inside the container
         run: |
-          docker exec -it aceserver bin/bash
+          docker exec aceserver sh
           ls
           cd build
           ls -al
