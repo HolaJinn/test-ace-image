@@ -49,4 +49,7 @@ jobs:
           
       - name: Execute inside the container
         run: |
-          docker exec aceserver sh -c "cd build; pwd; ls -al"
+          docker exec aceserver sh -c "cd build; pwd; touch hello.txt; ls -al"
+          ls build
+          
+          echo "content in build"
