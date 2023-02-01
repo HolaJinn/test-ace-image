@@ -49,7 +49,4 @@ jobs:
           
       - name: Execute inside the container
         run: |
-          docker exec aceserver sh -c "cd build; pwd; ls -al"
-          ls build
-          
-          echo "content in build"
+          docker exec aceserver sh -c "mkdir build; cd build; git clone https://github.com/HolaJinn/Simple-App.git; ls -al"
