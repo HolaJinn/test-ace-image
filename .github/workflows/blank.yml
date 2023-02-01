@@ -49,4 +49,4 @@ jobs:
           
       - name: Execute inside the container
         run: |
-          docker exec aceserver sh -c ls build
+          docker exec aceserver sh -c "cd build; pwd; ls -al"
