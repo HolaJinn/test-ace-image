@@ -27,8 +27,11 @@ jobs:
 
       - name: Move source code to build directory
         run: |
+          echo "Moving source to the build directory"
           mkdir build
-          mv * build
+          mv * build || /bin/true
+          
+          echo 'build'
   
       - name: Login to docker
         uses: docker/login-action@v2
