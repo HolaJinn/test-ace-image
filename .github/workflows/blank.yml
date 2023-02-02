@@ -44,6 +44,8 @@ jobs:
           registry: cp.icr.io
           image: cp.icr.io/cp/appc/ace:12.0.7.0-r1@sha256:376b4008901f5306af3e4235a54f3b6a27e18cfe00a22cc6d673fd1d95b95231
           options: -v ${{ github.workspace }}:/app
+          run: |
+            ls -al
          # echo 'build'
   
       #- name: Login to docker
