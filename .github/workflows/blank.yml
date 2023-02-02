@@ -45,7 +45,6 @@ jobs:
           image: cp.icr.io/cp/appc/ace:12.0.7.0-r1@sha256:376b4008901f5306af3e4235a54f3b6a27e18cfe00a22cc6d673fd1d95b95231
           options: -v ${{ github.workspace }}:/app
           run: |
-            
             ls -al /app/build
             echo 'this is test' > /app/build/test.txt
             ls -al /opt/ibm/ace-12/server/bin/
@@ -53,7 +52,6 @@ jobs:
             export MQSI_WORKPATH=$PWD/var/mqsi
             . /opt/ibm/ace-12/server/bin/mqsiprofile
             ./opt/ibm/ace-12/server/bin/ibmint package -help
-         # echo 'build'
          
       - name: Check
         run: |
