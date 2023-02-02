@@ -27,22 +27,22 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      #- uses: actions/checkout@v2
       
-      - name: Move source code to build directory
-        run: |
-          echo "Moving source to the build directory"
-          mkdir build
-          mv * build || /bin/true
+     # - name: Move source code to build directory
+     #   run: |
+      #    echo "Moving source to the build directory"
+       #   mkdir build
+        #  mv * build || /bin/true
           
-          echo 'build'
+         # echo 'build'
   
-      - name: Login to docker
-        uses: docker/login-action@v2
-        with:
-          username: cp
-          password: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2NzQ3MjI3NTQsImp0aSI6IjM1MGI3NGZmNzFhYzQxMGE4NDUxNzc1ZjRiMWI3YjdiIn0.gELGivzptT_-tkbGiS6bEv_vyeFkSWYB86HX4dDhk1w
-          registry: cp.icr.io
+      #- name: Login to docker
+       # uses: docker/login-action@v2
+        #with:
+         # username: cp
+          #password: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2NzQ3MjI3NTQsImp0aSI6IjM1MGI3NGZmNzFhYzQxMGE4NDUxNzc1ZjRiMWI3YjdiIn0.gELGivzptT_-tkbGiS6bEv_vyeFkSWYB86HX4dDhk1w
+          #registry: cp.icr.io
           
       - name: Test container
         run: |
