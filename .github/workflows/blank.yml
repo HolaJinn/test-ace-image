@@ -46,7 +46,13 @@ jobs:
           options: -v ${{ github.workspace }}:/app
           run: |
             ls -al /app/build
+            echo 'this is test' > /app/build/test.txt
          # echo 'build'
+         
+      - name: Check
+        run: |
+          cd build 
+          cat test.txt
   
       #- name: Login to docker
        # uses: docker/login-action@v2
