@@ -50,4 +50,4 @@ jobs:
       - name: Execute inside the container
         run: |
           ls -al 
-          docker exec aceserver bash -c "ls -al; cd build; echo "cd into build"; ls"
+          docker exec aceserver bash -c "ls -al; ls -al ./build; echo "cdintobuild"; ls"
