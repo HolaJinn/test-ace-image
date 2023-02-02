@@ -47,7 +47,7 @@ jobs:
           run: |
             ls -al /app/build
             echo 'this is test' > /app/build/test.txt
-            ibmint package --help
+            /opt/ibm/ace-12/server/bin/ibmint package --help
          # echo 'build'
          
       - name: Check
