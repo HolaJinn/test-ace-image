@@ -19,19 +19,24 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    container: 
-      image: cp.icr.io/cp/appc/ace:12.0.7.0-r1@sha256:376b4008901f5306af3e4235a54f3b6a27e18cfe00a22cc6d673fd1d95b95231
-      options: --user root
-      volumes:
-        - ${{ github.workspace }}:/app
-      credentials:
-        username: cp
-        password: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2NzQ3MjI3NTQsImp0aSI6IjM1MGI3NGZmNzFhYzQxMGE4NDUxNzc1ZjRiMWI3YjdiIn0.gELGivzptT_-tkbGiS6bEv_vyeFkSWYB86HX4dDhk1w
+    
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+        
+      - name: Test container
+        run: |
+          ls -al
       
+      
+      - name: Run Docker container to compile assets
+        uses: addnab/docker-run-action@v3
+        with:
+          username: cp
+          password: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2NzQ3MjI3NTQsImp0aSI6IjM1MGI3NGZmNzFhYzQxMGE4NDUxNzc1ZjRiMWI3YjdiIn0.gELGivzptT_-tkbGiS6bEv_vyeFkSWYB86HX4dDhk1w
+          image: cp.icr.io/cp/appc/ace:12.0.7.0-r1@sha256:376b4008901f5306af3e4235a54f3b6a27e18cfe00a22cc6d673fd1d95b95231
+          
      # - name: Move source code to build directory
      #   run: |
       #    echo "Moving source to the build directory"
@@ -47,9 +52,6 @@ jobs:
           #password: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2NzQ3MjI3NTQsImp0aSI6IjM1MGI3NGZmNzFhYzQxMGE4NDUxNzc1ZjRiMWI3YjdiIn0.gELGivzptT_-tkbGiS6bEv_vyeFkSWYB86HX4dDhk1w
           #registry: cp.icr.io
           
-      - name: Test container
-        run: |
-          ls -al
       
       #- name: Pull ACE Image
        # run: |
