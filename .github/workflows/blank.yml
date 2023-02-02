@@ -19,6 +19,8 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    container: 
+      image: cp.icr.io/cp/appc/ace:12.0.7.0-r1@sha256:376b4008901f5306af3e4235a54f3b6a27e18cfe00a22cc6d673fd1d95b95231
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -40,14 +42,14 @@ jobs:
           password: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2NzQ3MjI3NTQsImp0aSI6IjM1MGI3NGZmNzFhYzQxMGE4NDUxNzc1ZjRiMWI3YjdiIn0.gELGivzptT_-tkbGiS6bEv_vyeFkSWYB86HX4dDhk1w
           registry: cp.icr.io
       
-      - name: Pull ACE Image
-        run: |
-          docker pull cp.icr.io/cp/appc/ace:12.0.7.0-r1@sha256:376b4008901f5306af3e4235a54f3b6a27e18cfe00a22cc6d673fd1d95b95231
-          docker images
-          docker run -itd --name aceserver -v $pwd/build:/build -p 7600:7600 -p 7800:7800 -p 7843:7843 --env LICENSE=accept --env ACE_SERVER_NAME=ACESERVER cp.icr.io/cp/appc/ace:12.0.7.0-r1@sha256:376b4008901f5306af3e4235a54f3b6a27e18cfe00a22cc6d673fd1d95b95231
-          docker ps
+      #- name: Pull ACE Image
+       # run: |
+        #  docker pull cp.icr.io/cp/appc/ace:12.0.7.0-r1@sha256:376b4008901f5306af3e4235a54f3b6a27e18cfe00a22cc6d673fd1d95b95231
+         # docker images
+          #docker run -itd --name aceserver -v $pwd/build:/build -p 7600:7600 -p 7800:7800 -p 7843:7843 --env LICENSE=accept --env ACE_SERVER_NAME=ACESERVER cp.icr.io/cp/appc/ace:12.0.7.0-r1@sha256:376b4008901f5306af3e4235a54f3b6a27e18cfe00a22cc6d673fd1d95b95231
+          #docker ps
           
-      - name: Execute inside the container
-        run: |
-          ls -al 
-          docker exec aceserver bash -c "ls -al; ls -al ./build; echo "cdintobuild"; ls"
+      #- name: Execute inside the container
+       # run: |
+        #  ls -al 
+         # docker exec aceserver bash -c "ls -al; ls -al ./build; echo "cdintobuild"; ls"
